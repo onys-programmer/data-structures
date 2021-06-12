@@ -14,6 +14,7 @@ class Stack {
 
   push(val) {
     var newNode = new Node(val);
+
     if(!this.first) {
       this.first = newNode;
       this.last = newNode;
@@ -23,5 +24,21 @@ class Stack {
       this.first.next = temp;
     }
     return ++this.size;
+  }
+
+  pop() {
+    if(!this.first) return null;
+
+    var temp = this.first;
+
+    if(this.first === this.last) {
+      this.last = null;
+    }
+
+    this.first = this.first.next;
+    
+    this.size--;
+    
+    return temp.value;
   }
 }
