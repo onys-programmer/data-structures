@@ -121,9 +121,20 @@ class SinglyLinkedList {
     previousNode.next = removed.next;
 
     this.length--;
-    
+
     return removed;
   }
+
+  print() {
+    var arr = [];
+    var current = this.head;
+    while(current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log(arr);
+  }
+
 }
 
 var list = new SinglyLinkedList();
