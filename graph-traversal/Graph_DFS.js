@@ -28,4 +28,22 @@ class Graph {
       v => v !== vertex1
     );
   }
+
+  depthFirstRecursive(start) {
+    const result = [];
+    const visited = {};
+
+    (function dfs(vertex) {
+      if(!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach(neighbor => {
+        if(!visited[neighbor]) {
+          return dfs(neighbor);
+        }
+      });
+    })(start);
+
+    return result;
+  }
 }
